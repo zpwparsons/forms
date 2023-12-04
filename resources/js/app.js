@@ -7,6 +7,8 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { plugin as formKitPlugin, defaultConfig as defaultFormKitConfig } from '@formkit/vue'
 import formKitConfig from "../../formkit.config.js";
+import Vueform from '@vueform/vueform'
+import vueformConfig from './../../vueform.config'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -18,6 +20,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .use(formKitPlugin, defaultFormKitConfig(formKitConfig))
+            .use(Vueform, vueformConfig)
             .mount(el);
     },
     progress: {

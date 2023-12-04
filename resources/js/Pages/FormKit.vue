@@ -5,11 +5,9 @@ import { FormKitSchema } from '@formkit/vue'
 
 defineProps({
     schema: Array,
-})
+});
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e)
+const handleSubmit = () => {
     console.log('handling submit...')
 };
 </script>

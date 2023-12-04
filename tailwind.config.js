@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
-const FormKitVariants = require('@formkit/themes/tailwindcss')
+import FormKitVariants from '@formkit/themes/tailwindcss';
+import VueForm from '@vueform/vueform/tailwind';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,6 +13,9 @@ export default {
         './resources/js/**/*.vue',
         './resources/js/formkit/theme.js',
         './resources/css/formkit/multistep.css',
+        './vueform.config.js',
+        './node_modules/@vueform/vueform/themes/tailwind/**/*.vue',
+        './node_modules/@vueform/vueform/themes/tailwind/**/*.js',
     ],
 
     theme: {
@@ -25,5 +29,6 @@ export default {
     plugins: [
         forms,
         FormKitVariants,
+        VueForm,
     ],
 };
