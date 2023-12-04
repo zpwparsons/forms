@@ -16,36 +16,43 @@ class VueFormController extends Controller
                 'label'       => 'Name',
                 'placeholder' => 'John',
                 'default'     => 'Default name',
+                'rules'       => 'required',
             ],
             'surname' => [
                 'type'        => 'text',
                 'label'       => 'Surname',
                 'placeholder' => 'Doe',
+                'rules'       => 'required',
             ],
             'email' => [
                 'type'        => 'text',
                 'label'       => 'Email',
                 'inputType'   => 'email',
                 'placeholder' => 'johndoe@example.com',
+                'rules'       => 'required|email',
             ],
             'description' => [
                 'type'        => 'textarea',
                 'label'       => 'Description',
                 'description' => 'A short description about yourself.',
+                'rules'       => 'required',
             ],
             'birthday' => [
                 'type'        => 'date',
                 'label'       => 'Birthday',
+                'rules'       => 'required|date|before:2010-01-01',
             ],
             'phone' => [
                 'type'        => 'text',
                 'inputType'   => 'tel',
                 'label'       => 'Phone Number',
+                'rules'       => 'nullable|regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
             ],
             'languages' => [
                 'type'        => 'radiogroup',
                 'label'       => 'Languages',
                 'description' => 'What languages do you comfortable fluently?',
+                'rules'       => 'required',
                 'items'      => [
                     ['value' => 'english', 'label' => 'English'],
                     ['value' => 'afrikaans', 'label' => 'Afrikaans'],
@@ -58,6 +65,7 @@ class VueFormController extends Controller
                 'native'    => false,
                 'label'     => 'Preferred Transportation',
                 'inputType' => 'search',
+                'rules'     => 'required',
                 'items'     => [
                     ['value' => 'e-bike', 'label' => 'E-Bike'],
                     ['value' => 'e-scooter', 'label' => 'E-Scooter'],
@@ -67,8 +75,9 @@ class VueFormController extends Controller
                 ],
             ],
             'terms' => [
-                'type' => 'checkbox',
-                'text' => 'Do you agree to our terms of service',
+                'type'  => 'checkbox',
+                'text'  => 'Do you agree to our terms of service',
+                'rules' => 'required',
             ],
         ];
 
