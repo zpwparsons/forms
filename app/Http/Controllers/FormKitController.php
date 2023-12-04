@@ -12,127 +12,130 @@ class FormKitController extends Controller
     {
         $schema = [
             [
-                '$formkit' => 'form',
-                'actions'  => false,
-                'children' => [
+                '$formkit'        => 'multi-step',
+                'tabStyle'        => 'tab',
+                'allowIncomplete' => false,
+                'children'        => [
                     [
-                        '$formkit' => 'multi-step',
+                        '$formkit' => 'step',
+                        'name'     => 'Step 1',
                         'children' => [
                             [
-                                '$formkit' => 'step',
-                                'name'     => 'Step 1',
+                                '$el'   => 'div',
+                                'attrs' => [
+                                    'class' => 'grid grid-cols-2 gap-6',
+                                ],
                                 'children' => [
                                     [
-                                        '$el'   => 'div',
-                                        'attrs' => [
-                                            'class' => 'grid grid-cols-2 gap-6',
-                                        ],
-                                        'children' => [
-                                            [
-                                                '$formkit'    => 'text',
-                                                'name'        => 'name',
-                                                'label'       => 'Name',
-                                                'placeholder' => 'John',
-                                                'value'       => 'Default name ',
-                                                'validation'  => 'required',
-                                            ],
-                                            [
-                                                '$formkit'    => 'text',
-                                                'name'        => 'surname',
-                                                'label'       => 'Surname',
-                                                'placeholder' => 'Doe',
-                                                'validation'  => 'required',
-                                            ],
-                                            [
-                                                '$formkit'    => 'text',
-                                                'name'        => 'email',
-                                                'label'       => 'Email',
-                                                'placeholder' => 'johndoe@example.com',
-                                                'validation'  => 'required|email',
-                                            ],
-                                        ],
-                                    ]
+                                        '$formkit'    => 'text',
+                                        'name'        => 'name',
+                                        'label'       => 'Name',
+                                        'placeholder' => 'John',
+                                        'value'       => 'Default name ',
+                                        'validation'  => 'required',
+                                    ],
+                                    [
+                                        '$formkit'    => 'text',
+                                        'name'        => 'surname',
+                                        'label'       => 'Surname',
+                                        'placeholder' => 'Doe',
+                                        'validation'  => 'required',
+                                    ],
+                                    [
+                                        '$formkit'    => 'text',
+                                        'name'        => 'email',
+                                        'label'       => 'Email',
+                                        'placeholder' => 'johndoe@example.com',
+                                        'validation'  => 'required|email',
+                                    ],
                                 ],
+                            ]
+                        ],
+                    ],
+                    [
+                        '$formkit' => 'step',
+                        'name'     => 'Step 2',
+                        'children' => [
+                            [
+                                '$formkit'   => 'textarea',
+                                'name'       => 'description',
+                                'label'      => 'Description',
+                                'help'       => 'A short description about yourself.',
+                                'validation' => 'required',
                             ],
                             [
-                                '$formkit' => 'step',
-                                'name'     => 'Step 2',
+                                '$el' => 'div',
+                                'attrs' => [
+                                    'class' => 'grid grid-cols-2 gap-6',
+                                ],
                                 'children' => [
                                     [
-                                        '$formkit'   => 'textarea',
-                                        'name'       => 'description',
-                                        'label'      => 'Description',
-                                        'help'       => 'A short description about yourself.',
-                                        'validation' => 'required',
+                                        '$formkit'   => 'date',
+                                        'name'       => 'birthday',
+                                        'label'      => 'Birthday',
+                                        'validation' => 'required|date_before:2010-01-01',
                                     ],
                                     [
-                                        '$el' => 'div',
-                                        'attrs' => [
-                                            'class' => 'grid grid-cols-2 gap-6',
+                                        '$formkit'   => 'tel',
+                                        'name'       => 'phone',
+                                        'label'      => 'Phone Number',
+                                        'validation' => 'matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+                                        'validationVisibility' => 'dirty',
+                                        'validationMessages'   => [
+                                            'matches' => 'The phone number field must be in the format xxx-xxx-xxxx',
                                         ],
-                                        'children' => [
-                                            [
-                                                '$formkit'   => 'date',
-                                                'name'       => 'birthday',
-                                                'label'      => 'Birthday',
-                                                'validation' => 'required|date_before:2010-01-01',
-                                            ],
-                                            [
-                                                '$formkit'   => 'tel',
-                                                'name'       => 'phone',
-                                                'label'      => 'Phone Number',
-                                                'validation' => 'matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
-                                                'validationVisibility' => 'dirty',
-                                                'validationMessages'   => [
-                                                    'matches' => 'The phone number field must be in the format xxx-xxx-xxxx',
-                                                ],
-                                            ],
-                                        ],
-                                    ]
+                                    ],
                                 ],
+                            ]
+                        ],
+                    ],
+                    [
+                        '$formkit' => 'step',
+                        'name'     => 'Step 3',
+                        'children' => [
+                            [
+                                '$formkit' => 'radio',
+                                'name'     => 'languages',
+                                'label'    => 'Languages',
+                                'help'     => 'What languages do you comfortable fluently?',
+                                'options'  => [
+                                    'English',
+                                    'Afrikaans',
+                                    'German',
+                                ],
+                                'validation' => 'required',
                             ],
                             [
-                                '$formkit' => 'step',
-                                'name'     => 'Step 3',
-                                'children' => [
-                                    [
-                                        '$formkit' => 'radio',
-                                        'name'     => 'languages',
-                                        'label'    => 'Languages',
-                                        'help'     => 'What languages do you comfortable fluently?',
-                                        'options'  => [
-                                            'English',
-                                            'Afrikaans',
-                                            'German',
-                                        ],
-                                        'validation' => 'required',
-                                    ],
-                                    [
-                                        '$formkit' => 'select',
-                                        'name'     => 'transport',
-                                        'label'    => 'Preferred Transportation',
-                                        'options'  => [
-                                            'E-Bike',
-                                            'E-Scooter',
-                                            'Electric car',
-                                            'Walking',
-                                            'Space tube',
-                                        ],
-                                        'validation' => 'required',
-                                    ],
-                                    [
-                                        '$formkit'   => 'checkbox',
-                                        'name'       => 'terms',
-                                        'label'      => 'Terms and Conditions',
-                                        'help'       => 'Do you agree to our terms of service',
-                                        'validation' => 'accepted',
-                                    ],
+                                '$formkit' => 'select',
+                                'name'     => 'transport',
+                                'label'    => 'Preferred Transportation',
+                                'options'  => [
+                                    'E-Bike',
+                                    'E-Scooter',
+                                    'Electric car',
+                                    'Walking',
+                                    'Space tube',
                                 ],
+                                'validation' => 'required',
+                            ],
+                            [
+                                '$formkit'   => 'checkbox',
+                                'name'       => 'terms',
+                                'label'      => 'Terms and Conditions',
+                                'help'       => 'Do you agree to our terms of service',
+                                'validation' => 'accepted',
+                            ],
+                            [
+                                /**
+                                 * TODO: Add "Submit" button to the last step of the form.
+                                 * @link https://formkit.com/plugins/multi-step#introduction#customizing-step-actions
+                                 */
+                                '$formkit' => 'submit',
                             ],
                         ],
-                    ]
+                    ],
                 ],
-            ],
+            ]
         ];
 
         return Inertia::render('FormKit', [
@@ -142,5 +145,6 @@ class FormKitController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
     }
 }

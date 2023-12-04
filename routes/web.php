@@ -15,9 +15,11 @@ Route::get('/', function () {
 
 Route::prefix('form-kit')->name('form-kit:')->group(function () {
     Route::get('/', [FormKitController::class, 'create'])->name('create');
+    Route::post('/', [FormKitController::class, 'store'])->name('store');
 });
 
 Route::prefix('vue-form')->name('vue-form:')->group(function () {
     Route::get('/', [VueFormController::class, 'create'])->name('create');
+    Route::post('/', [VueFormController::class, 'store'])->name('store');
 });
 
