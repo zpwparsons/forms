@@ -33,6 +33,7 @@ class FormKitController extends Controller
                                                 'name'        => 'name',
                                                 'label'       => 'Name',
                                                 'placeholder' => 'John',
+                                                'value'       => 'Default name ',
                                                 'validation'  => 'required',
                                             ],
                                             [
