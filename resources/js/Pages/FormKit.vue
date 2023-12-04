@@ -15,8 +15,12 @@ const handleSubmit = () => {
     <Head title="FormKit" />
 
     <DefaultLayout>
-        <h1 class="text-2xl font-bold">FormKit</h1>
+        <h1 class="mb-4 text-2xl font-bold">FormKit</h1>
 
         <FormKitSchema :schema="schema" />
     </DefaultLayout>
 </template>
+
+<style scoped>
+
+</style>

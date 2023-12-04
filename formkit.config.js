@@ -1,8 +1,8 @@
 import { generateClasses } from '@formkit/themes';
 import { genesisIcons } from '@formkit/icons';
-import myTailwindTheme from './resources/js/FormKit/tailwind-theme.js';
+import theme from '@/formkit/theme.js';
 import { createMultiStepPlugin } from '@formkit/addons'
-import '@formkit/addons/css/multistep'
+import './resources/css/formkit/multistep.css'
 
 import { defaultConfig } from '@formkit/vue'
 
@@ -11,7 +11,7 @@ const config = defaultConfig({
         ...genesisIcons,
     },
     config: {
-        classes: generateClasses(myTailwindTheme),
+        classes: generateClasses(theme),
     },
     plugins: [
         createMultiStepPlugin(),

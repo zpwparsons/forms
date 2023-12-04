@@ -23,26 +23,34 @@ class FormKitController extends Controller
                                 'name'     => 'Step 1',
                                 'children' => [
                                     [
-                                        '$formkit'    => 'text',
-                                        'name'        => 'name',
-                                        'label'       => 'Name',
-                                        'placeholder' => 'John',
-                                        'validation'  => 'required',
-                                    ],
-                                    [
-                                        '$formkit'    => 'text',
-                                        'name'        => 'surname',
-                                        'label'       => 'Surname',
-                                        'placeholder' => 'Doe',
-                                        'validation'  => 'required',
-                                    ],
-                                    [
-                                        '$formkit'    => 'text',
-                                        'name'        => 'email',
-                                        'label'       => 'Email',
-                                        'placeholder' => 'johndoe@example.com',
-                                        'validation'  => 'required|email',
-                                    ],
+                                        '$el'   => 'div',
+                                        'attrs' => [
+                                            'class' => 'grid grid-cols-2 gap-6',
+                                        ],
+                                        'children' => [
+                                            [
+                                                '$formkit'    => 'text',
+                                                'name'        => 'name',
+                                                'label'       => 'Name',
+                                                'placeholder' => 'John',
+                                                'validation'  => 'required',
+                                            ],
+                                            [
+                                                '$formkit'    => 'text',
+                                                'name'        => 'surname',
+                                                'label'       => 'Surname',
+                                                'placeholder' => 'Doe',
+                                                'validation'  => 'required',
+                                            ],
+                                            [
+                                                '$formkit'    => 'text',
+                                                'name'        => 'email',
+                                                'label'       => 'Email',
+                                                'placeholder' => 'johndoe@example.com',
+                                                'validation'  => 'required|email',
+                                            ],
+                                        ],
+                                    ]
                                 ],
                             ],
                             [
@@ -57,21 +65,29 @@ class FormKitController extends Controller
                                         'validation' => 'required',
                                     ],
                                     [
-                                        '$formkit'   => 'date',
-                                        'name'       => 'birthday',
-                                        'label'      => 'Birthday',
-                                        'validation' => 'required|date_before:2010-01-01',
-                                    ],
-                                    [
-                                        '$formkit'   => 'tel',
-                                        'name'       => 'phone',
-                                        'label'      => 'Phone Number',
-                                        'validation' => 'matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
-                                        'validationVisibility' => 'dirty',
-                                        'validationMessages'   => [
-                                            'matches' => 'The phone number field must be in the format xxx-xxx-xxxx',
+                                        '$el' => 'div',
+                                        'attrs' => [
+                                            'class' => 'grid grid-cols-2 gap-6',
                                         ],
-                                    ],
+                                        'children' => [
+                                            [
+                                                '$formkit'   => 'date',
+                                                'name'       => 'birthday',
+                                                'label'      => 'Birthday',
+                                                'validation' => 'required|date_before:2010-01-01',
+                                            ],
+                                            [
+                                                '$formkit'   => 'tel',
+                                                'name'       => 'phone',
+                                                'label'      => 'Phone Number',
+                                                'validation' => 'matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/',
+                                                'validationVisibility' => 'dirty',
+                                                'validationMessages'   => [
+                                                    'matches' => 'The phone number field must be in the format xxx-xxx-xxxx',
+                                                ],
+                                            ],
+                                        ],
+                                    ]
                                 ],
                             ],
                             [
