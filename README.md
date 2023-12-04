@@ -1,5 +1,5 @@
  # Vue Form Builder Demo
-A simple demo project for building dynamic forms using schema objects for FormKit and the other for VueForm.
+A simple demo project for building dynamic forms using schema objects for [FormKit](https://formkit.com/) and the other for [VueForm](https://vueform.com/).
 
 ## Requirements
 The following tools are required in order to start the installation.
